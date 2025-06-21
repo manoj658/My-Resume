@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanugala Manoj Kumar - Resume</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .resume-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="1" fill="rgba(255,255,255,0.05)"/><circle cx="80" cy="40" r="1" fill="rgba(255,255,255,0.05)"/><circle cx="40" cy="80" r="1" fill="rgba(255,255,255,0.05)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.1;
+        }
+        
+        .name {
+            font-size: 2.5em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .location {
+            font-size: 1.1em;
+            opacity: 0.9;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95em;
+        }
+        
+        .contact-item a {
+            color: #74b9ff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .contact-item a:hover {
+            color: #0984e3;
+        }
+        
+        .content {
+            padding: 40px 30px;
+        }
+        
+        .section {
+            margin-bottom: 35px;
+        }
+        
+        .section-title {
+            font-size: 1.4em;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 3px solid #74b9ff;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: #0984e3;
+        }
+        
+        .objective {
+            font-size: 1.1em;
+            line-height: 1.7;
+            color: #555;
+            font-style: italic;
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #74b9ff;
+        }
+        
+        .education-item, .experience-item {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 4px solid #74b9ff;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .education-item:hover, .experience-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .degree {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        
+        .institution {
+            color: #74b9ff;
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+        
+        .details {
+            color: #666;
+            font-size: 0.95em;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        
+        .skill-category {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #74b9ff;
+        }
+        
+        .skill-category h4 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        
+        .skill-tag {
+            background: #74b9ff;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 500;
+        }
+        
+        .project-title {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .tech-stack {
+            color: #74b9ff;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+        
+        .project-points {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .project-points li {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+            color: #555;
+        }
+        
+        .project-points li::before {
+            content: '▶';
+            position: absolute;
+            left: 0;
+            color: #74b9ff;
+            font-size: 0.8em;
+        }
+        
+        .company {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        
+        .position {
+            color: #74b9ff;
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+        
+        .certification-item {
+            background: #e8f4fd;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #74b9ff;
+        }
+        
+        .cert-name {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        
+        .cert-issuer {
+            color: #74b9ff;
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+        
+        .cert-validity {
+            color: #666;
+            font-size: 0.9em;
+        }
+        
+        .verification-link {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 16px;
+            background: #74b9ff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 0.9em;
+            transition: background 0.3s ease;
+        }
+        
+        .verification-link:hover {
+            background: #0984e3;
+        }
+        
+        @media (max-width: 768px) {
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .name {
+                font-size: 2em;
+            }
+            
+            .content {
+                padding: 30px 20px;
+            }
+            
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="resume-container">
+        <div class="header">
+            <h1 class="name">Kanugala Manoj Kumar</h1>
+            <p class="location">Kurnool, Andhra Pradesh</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span>📞</span>
+                    <span>8247810531</span>
+                </div>
+                <div class="contact-item">
+                    <span>✉️</span>
+                    <a href="mailto:kanugalamanojkumar@gmail.com">kanugalamanojkumar@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <span>🔗</span>
+                    <a href="https://www.linkedin.com/in/kanugala-manoj-kumar-244b48279/" target="_blank">LinkedIn</a>
+                </div>
+                <div class="contact-item">
+                    <span>💻</span>
+                    <a href="https://github.com/manoj658" target="_blank">GitHub</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <div class="section">
+                <h2 class="section-title">Career Objective</h2>
+                <p class="objective">
+                    Aspiring software engineer with a strong foundation in programming and problem-solving, seeking an opportunity to apply my skills in a dynamic and growth-oriented environment.
+                </p>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">Education</h2>
+                <div class="education-item">
+                    <div class="degree">B.Tech in Electrical and Electronics Engineering</div>
+                    <div class="institution">Rajeev Gandhi Memorial College of Engineering and Technology, JNTU Anantapur</div>
+                    <div class="details">Graduation Year: 2025 | CGPA: 7.4 / 10</div>
+                </div>
+                <div class="education-item">
+                    <div class="degree">Intermediate (Class 12)</div>
+                    <div class="institution">Board of Intermediate Education, Andhra Pradesh (BIEAP)</div>
+                    <div class="details">Year: 2021 | Percentage: 58%</div>
+                </div>
+                <div class="education-item">
+                    <div class="degree">Secondary School Certificate (SSC)</div>
+                    <div class="details">Year: 2019 | Percentage: 83%</div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">Technical Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h4>Programming Languages</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">C</span>
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">Java</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Web Technologies</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">HTML</span>
+                            <span class="skill-tag">CSS</span>
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">React</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Database & Tools</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">MySQL</span>
+                            <span class="skill-tag">VS Code</span>
+                            <span class="skill-tag">Git</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Core Concepts</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Data Structures</span>
+                            <span class="skill-tag">OOP</span>
+                            <span class="skill-tag">Windows</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">Project</h2>
+                <div class="experience-item">
+                    <div class="project-title">Speed and Direction Control of DC Motor in Electric Vehicles</div>
+                    <div class="tech-stack">Tech Stack: Arduino Nano, HC-05 Bluetooth Module, PWM, Ultrasonic Sensor</div>
+                    <ul class="project-points">
+                        <li>Designed an embedded system for controlling DC motor speed and direction via smartphone using Bluetooth</li>
+                        <li>Utilized PWM to adjust speed and integrated an ultrasonic sensor for obstacle detection and auto-reverse functionality</li>
+                        <li>Focused on improving automation and safety in electric vehicle applications</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">Internship Experience</h2>
+                <div class="experience-item">
+                    <div class="company">Wipro TalentNXT Full Stack Development</div>
+                    <div class="position">Trainee | May 2024 - September 2024</div>
+                    <ul class="project-points">
+                        <li>Trained in front-end and back-end development technologies</li>
+                        <li>Built web applications using HTML, CSS, JavaScript, and backend frameworks</li>
+                        <li>Practiced version control (Git) and agile methodologies</li>
+                        <li>Gained exposure to real-world software development practices and tools</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">Certifications</h2>
+                <div class="certification-item">
+                    <div class="cert-name">Zscaler Zero Trust Certified Associate (ZTCA)</div>
+                    <div class="cert-issuer">Issued by Zscaler Academy</div>
+                    <div class="cert-validity">Valid until November 2027</div>
+                    <a href="http://verify.skilljar.com/c/75xtr32wbdd2" target="_blank" class="verification-link">
+                        Verify Certification
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
